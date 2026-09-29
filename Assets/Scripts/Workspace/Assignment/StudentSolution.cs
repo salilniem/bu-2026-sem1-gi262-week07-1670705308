@@ -77,7 +77,7 @@ namespace Assignment
 
             while (left <= right)
             {
-                int mid = (left + right) / 2;
+                int mid = left + (right-left) / 2;
                 if (array[mid] == target)
                 {
                     index = mid;
@@ -87,7 +87,7 @@ namespace Assignment
                 {
                     left = mid + 1;
                 }
-                else if ((array[mid] > target)
+                else if (array[mid] > target)
                 {
                     right = mid - 1;
                 }
