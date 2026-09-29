@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+using Unity.VisualScripting;
 
 namespace Assignment
 {
@@ -14,7 +16,18 @@ namespace Assignment
 
             // Your code here ...
             // ...
-
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == target)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            if (index == -1)
+            {
+             //Debug.Log ไม่ได้ค่ะ ไม่รู้ผิดตรงไหน
+            }
 
             return index;
         }
@@ -33,6 +46,20 @@ namespace Assignment
 
             // Your code here ...
             // ...
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if (array[i, j] == target)
+                    {
+                        row = i;
+                        col = j;
+                        break;
+                    }
+                }
+                if (row != -1 && col != -1)
+                    break;
+            }
 
             return new[] { row, col };
         }
@@ -43,9 +70,28 @@ namespace Assignment
             int target = 23;
             int index = -1;
 
+            int left = 0;
+            int right = array.Length - 1;
             // Your code here ...
             // ...
 
+            while (left <= right)
+            {
+                int mid = (left + right) / 2;
+                if (array[mid] == target)
+                {
+                    index = mid;
+                    break;
+                }
+                else if (array[mid] <= target)
+                {
+                    left = mid + 1;
+                }
+                else if ((array[mid] > target)
+                {
+                    right = mid - 1;
+                }
+            }
             return index;
         }
 
